@@ -24,18 +24,6 @@ export const Modal: React.FC<ModalProps> = ({
     }
   };
 
-  useEffect(() => {
-    if (!isOpen) {
-      document.body.style.pointerEvents = 'auto';
-    } else {
-      document.body.style.pointerEvents = 'none';
-    }
-
-    return () => {
-      document.body.style.pointerEvents = 'auto';
-    };
-  }, [isOpen]);
-
   return (
     <Dialog open={isOpen} onOpenChange={onChange}>
       <DialogContent>
