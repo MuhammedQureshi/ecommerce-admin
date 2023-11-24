@@ -1,7 +1,6 @@
 "use client";
 
-import { Dialog, DialogContent, DialogDescription, DialogHeader, DialogTitle } from "@/components/ui/dialog";
-import { useEffect } from 'react';
+import { Dialog, DialogContent, DialogDescription, DialogFooter, DialogHeader, DialogTitle } from "@/components/ui/dialog";
 
 interface ModalProps {
   title: string;
@@ -16,7 +15,7 @@ export const Modal: React.FC<ModalProps> = ({
   description,
   isOpen,
   onClose,
-  children,
+  children
 }) => {
   const onChange = (open: boolean) => {
     if (!open) {
@@ -24,14 +23,18 @@ export const Modal: React.FC<ModalProps> = ({
     }
   };
 
-  return (
+  return ( 
     <Dialog open={isOpen} onOpenChange={onChange}>
       <DialogContent>
         <DialogHeader>
           <DialogTitle>{title}</DialogTitle>
-          <DialogDescription>{description}</DialogDescription>
+          <DialogDescription>
+            {description}
+          </DialogDescription>
         </DialogHeader>
-        <div>{children}</div>
+        <div>
+          {children}
+        </div>
       </DialogContent>
     </Dialog>
   );
